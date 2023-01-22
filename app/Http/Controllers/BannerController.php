@@ -50,7 +50,7 @@ class BannerController extends Controller
         ]);
         // Image Upload Str //
         if($request->hasFile('banner_photo')){
-            $new_name = $banner_id.".".$request->file('banner_photo')->getClientOriginalExtensio();
+            $new_name = $banner_id.".".$request->file('banner_photo')->getClientOriginalExtension();
             Image::make($request->file('banner_photo'))->resize(514,583)->save(base_path('public/uploads/banner/'.$new_name));
         // Image Upload End //
             Banner::find($banner_id)->update([
